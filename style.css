@@ -4,15 +4,15 @@
 
 :root{
   --cell-size:100px;
-  --mark-size: cal (var(--cell-size)*0.9);
-
-
+  --mark-size: calc(var(--cell-size)*0.9);
 }
+
 
 body{
   margin:0;
 }
 
+/* board*/
 .board{
   width:100vw ; 
   height:100vh;
@@ -24,10 +24,18 @@ body{
   align-items:center;
 }
 
+
+/* cell */
+
 .cell{
   width:var(--cell-size);
   height:100px;
   border:1px solid black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+
 }
 
 .cell:first-child,
@@ -49,4 +57,43 @@ body{
 .cell:nth-child(3n +3){
   border-right:none;
 }
+
+.cell.x::before,
+.cell.x::after{
+  content:"";
+  position:absolute;
+  width:calc(var(--mark-size)*0.15);
+  height:var(--mark-size);
+  background-color:black;
+}
+
+
+.cell.x::before{
+  transform:rotate(45deg);
+}
+.cell.x::after{
+  transform:rotate(-45deg);
+}
+
+
+.cell.circle::before,
+.cell.circle::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+ 
+}
+
+
+.cell.x::before{
+  transform:rotate(45deg);
+  width:var(--mark-size);
+  height:var(--mark-size);
+}
+.cell.x::after{
+  transform:rotate(-45deg);
+  width:var(--mark-size);
+  height:var(--mark-size);
+}
+
 
