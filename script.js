@@ -14,6 +14,7 @@ const WINNING_COMBINATIONS=[
 const cellElements=document.querySelectorAll('[data-cell]');
 const board=document.getElementById("board")
 const winningMessageTextElement=document.querySelector('[data-winning-message-text]')
+const winningMessageElement=document.getElementById('winningMessage')
 let circleTurn ;
 
 startGame()
@@ -42,7 +43,7 @@ function handleClick(e){
   placeMark(cell,currentClass)
   //check win 
   if (checkWin(currentClass)){
-    console.log("winner")
+    endGame(false)
   }
 
   //check draw
@@ -82,8 +83,10 @@ function checkWin(currentClass){
 function endGame(draw){
   if (draw){
 
-  }else {
-    winningMessageTextElement
+  } else {
+    winningMessageTextElement.innerHTML=`${circleTurn ? "O's" : "X's" } Wins!`;
+    winningMessageElement.classList.add('show');
   }
+  
 
 }
