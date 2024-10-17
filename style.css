@@ -81,19 +81,21 @@ body{
   content:"";
   position:absolute;
   border-radius:50%;
+  background-color:black;
  
 }
 
 
-.cell.x::before{
+.cell.circle::before{
   transform:rotate(45deg);
   width:var(--mark-size);
   height:var(--mark-size);
 }
-.cell.x::after{
+.cell.circle::after{
   transform:rotate(-45deg);
-  width:var(--mark-size);
-  height:var(--mark-size);
+  width:calc(var(--mark-size)*0.7);
+  height:calc(var(--mark-size)*0.7);
+  background-color:white;
 }
 
 
